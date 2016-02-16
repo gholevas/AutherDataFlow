@@ -27,10 +27,12 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
 	User.create(req.body)
 	.then(function (user) {
+		req.session.userId = user._id;
 		res.status(201).json(user);
 	})
 	.then(null, next);
 });
+
 
 router.get('/:id', function (req, res, next) {
 	req.requestedUser.getStories()
