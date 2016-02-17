@@ -10,9 +10,9 @@
 	</div>
 	<div class="media-body">
 		<h4 class="media-heading tucked">
-			<div ng-if="isForm" contenteditable placeholder="Jean Doe" ng-model="user.name" class="form-like"></div>
+			<div ng-if="isForm" contenteditable="currentUser.isAdmin" placeholder="Jean Doe" ng-model="user.name" class="form-like"></div>
 			<span ng-if="!isForm"
-				  contenteditable
+				  contenteditable="currentUser.isAdmin"
 				  placeholder="Jean Doe"
 				  ng-model="user.name"
 				  ng-model-options="{debounce: 500}"
@@ -24,17 +24,17 @@
 				  eat-click></span>
 		</h4>
 		<h5 class="tucked">
-			<div ng-if="isForm" contenteditable placeholder="email@website.com" ng-model="user.email" class="form-like"></div>
+			<div ng-if="isForm" contenteditable="currentUser.isAdmin" placeholder="email@website.com" ng-model="user.email" class="form-like"></div>
 			<span ng-if="!isForm"
-				  contenteditable
+				  contenteditable="currentUser.isAdmin"
 				  ng-model="user.email"
 				  ng-model-options="{debounce: 500}"
 				  eat-click></span>
 		</h5>
 		<h5 class="tucked">
-			<div ng-if="isForm" contenteditable placeholder="(555) 555-5555" ng-model="user.phone" class="form-like"></div>
+			<div ng-if="isForm" contenteditable="currentUser.isAdmin" placeholder="(555) 555-5555" ng-model="user.phone" class="form-like"></div>
 			<span ng-if="!isForm"
-				  contenteditable
+				  contenteditable="currentUser.isAdmin"
 				  placeholder="(555) 555-5555"
 				  ng-model="user.phone"
 				  ng-model-options="{debounce: 500}"
@@ -42,7 +42,7 @@
 		</h5>
 	</div>
 	<div class="media-right media-middle">
-		<button ng-if="!isForm" class="btn btn-default" ng-click="removeUser()" eat-click>
+		<button ng-if="!isForm" class="btn btn-default" ng-show="currentUser.isAdmin" ng-click="removeUser()" eat-click>
 			<span class="glyphicon glyphicon-remove"></span>
 		</button>
 	</div>

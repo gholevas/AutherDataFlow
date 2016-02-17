@@ -1,6 +1,7 @@
 'use strict';
 
-app.controller('UserListCtrl', function ($scope, users, User) {
+app.controller('UserListCtrl', function ($scope, users, User, LoginFactory) {
+	$scope.currentUser = LoginFactory.getCurrentUser();
 	$scope.users = users;
 	$scope.addUser = function () {
 		$scope.userAdd.save()

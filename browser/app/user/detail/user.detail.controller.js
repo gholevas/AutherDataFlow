@@ -1,6 +1,11 @@
 'use strict';
 
-app.controller('UserDetailCtrl', function ($scope, user, Story) {
+app.controller('UserDetailCtrl', function ($scope, user, Story, LoginFactory) {
+	$scope.currentUser = LoginFactory.getCurrentUser();
+	$scope.isAdmin = function(){
+		return LoginFactory.getCurrentUser().isAdmin;
+	};
+	console.log($scope.currentUser.isAdmin);
 	$scope.user = user;
 	$scope.newStory = new Story({author: $scope.user});
 	$scope.addStory = function () {

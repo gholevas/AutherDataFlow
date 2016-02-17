@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('userItem', function () {
+app.directive('userItem', function (LoginFactory) {
 	return {
 		restrict: 'E',
 		templateUrl: '/browser/app/user/item/user.item.html',
@@ -24,6 +24,8 @@ app.directive('userItem', function () {
 					scope.user.isDestroyed = true;
 				});
 			};
+			scope.currentUser = LoginFactory.getCurrentUser();
+			console.log("item scope current User: ",scope.currentUser)
 		}
 	}
 });

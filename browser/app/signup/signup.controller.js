@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('SignUpCtrl', function($scope, LoginFactory, $state) {
-
+		$scope.currentUser = LoginFactory.getCurrentUser();
     $scope.submitSignup = function() {
         LoginFactory.signUp($scope.email, $scope.password)
             .then(function(res) {
