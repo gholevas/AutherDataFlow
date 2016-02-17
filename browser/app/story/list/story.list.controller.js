@@ -1,9 +1,10 @@
 'use strict';
 
-app.controller('StoryListCtrl', function ($scope, stories, Story, users, LoginFactory) {
+app.controller('StoryListCtrl', function ($scope, stories, Story, users, currentUser) {
 	$scope.stories = stories;
 	$scope.users = users;
-	$scope.currentUser = LoginFactory.getCurrentUser();
+	$scope.currentUser = currentUser;
+	console.log('the stories list controller user: ',$scope.currentUser)
 	$scope.newStory = new Story();
 	
 	$scope.removeStory = function (story) {
